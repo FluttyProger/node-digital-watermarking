@@ -18,23 +18,25 @@ class DigitalWatermarking{
         }
     }
 
-    static async transformImageWithText(srcFileName,watermarkText,fontSize,enCodeFileName)
+    static async transformImageWithText(srcFileName,watermarkText,enCodeFileName)
     {
         const srcFilePath = DigitalWatermarking.getAbsoluteFilePath(srcFileName);
         DigitalWatermarking.existsFilePath(srcFilePath);
         return await lib.transformImageWithText(
             srcFilePath,
-            watermarkText,fontSize,
+            watermarkText,
+            1.0,
             DigitalWatermarking.getAbsoluteFilePath(enCodeFileName)
         );
     }
 
-    static async transformImageBufferWithText(srcBuffer,watermarkText,fontSize)
+    static async transformImageBufferWithText(srcBuffer,watermarkText)
     {
         DigitalWatermarking.isBuffer(srcBuffer);
         return await lib.transformImageWithText(
             srcBuffer,
-            watermarkText,fontSize,
+            watermarkText,
+            1.0
         );
     }
 
