@@ -81,11 +81,13 @@ function transFormMatWithText(srcImg, watermarkText, fontSize) {
   const padded = getBlueChannel(srcImg)
   padded.convertTo(padded, cv.CV_32F)
   const comImg = getDftMat(padded)
+  let watermarkText1 = watermarkText.slice(0, 4);
+  let watermarkText2 = watermarkText.slice(4, 8);
   // add text
-  const center = new cv.Point(padded.cols / 2, padded.rows / 2)
-  addTextByMat(comImg, watermarkText, center, fontSize)
+  const underouter = new cv.Point(45, 65)
+  addTextByMat(comImg, watermarkText1, underouter, fontSize)
   const outer = new cv.Point(45, 45)
-  addTextByMat(comImg, watermarkText, outer, fontSize)
+  addTextByMat(comImg, watermarkText2, outer, fontSize)
   //back image
   const invDFT = new cv.Mat()
   cv.idft(comImg, invDFT, cv.DFT_SCALE | cv.DFT_REAL_OUTPUT, 0)
