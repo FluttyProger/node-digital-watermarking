@@ -6,26 +6,26 @@ function getAbsolutePath(fileName) {
   return path.join(__dirname, fileName)
 }
 //EnCode Image add digital watermarking
-let srcFileName = getAbsolutePath('2.jpg')
-let watermarkText = '^*98@#$%'
-let fontSize = 1.0
-let enCodeFileName = getAbsolutePath('2_enCode.jpg')
+let srcFileName = getAbsolutePath('7.jpg')
+let watermarkText = '@#$%^&98'
+let enCodeFileName = getAbsolutePath('7_enCode.jpg')
+let deCodeFileName = getAbsolutePath('7_deCode.jpg')
+
 async function run() {
-
-  let startTime = new Date().getTime();
-  await dw.transformImageWithText(
-    srcFileName,
-    watermarkText,
-    fontSize,
-    enCodeFileName,
+  
+  //encode from buffer
+  const enCodeFileRes = await dw.transformImageBufferWithText(
+    fs.readFileSync(srcFileName),
+    watermarkText
   )
-  console.log('runTime',new Date().getTime()-startTime);
+  
+  await enCodeFileRes.writeAsync(enCodeFileName)
+  
+  //decode from buffer
+  const deCodeFileRes = await dw.getTextFormImageBuffer(
+    fs.readFileSync(enCodeFileName)
+  )
 
-  //DeCode Image get digital watermarking
-  startTime = new Date().getTime();
-  let deCodeFileName = getAbsolutePath('2_deCode.jpg')
-  await dw.getTextFormImage(enCodeFileName, deCodeFileName)
-  console.log('runTime',new Date().getTime()-startTime);
-
+  await deCodeFileRes.writeAsync(deCodeFileName)
 }
 run()
