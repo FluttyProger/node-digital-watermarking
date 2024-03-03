@@ -5,10 +5,9 @@
 
 # Sample Use
 ```js
-const dw = require('../index')
+const dw = require('digital-watermarking');
 const path = require('path')
 const fs = require('fs')
-const Jimp = require('jimp')
 function getAbsolutePath(fileName) {
   return path.join(__dirname, fileName)
 }
@@ -39,7 +38,7 @@ run()
 ```
 
 # Result
-## 7_enCode.png
+## 7_enCode.jpg
 ![7_enCode.jpg](https://raw.githubusercontent.com/FluttyProger/node-digital-watermarking/master/test/7_enCode.jpg)
 ## 7_deCode.jpg
 ![7_deCode.jpg](https://raw.githubusercontent.com/FluttyProger/node-digital-watermarking/master/test/7_deCode.jpg)
