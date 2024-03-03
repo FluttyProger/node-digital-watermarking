@@ -84,7 +84,7 @@ function transFormMatWithText(srcImg, watermarkText, fontSize) {
   let watermarkText1 = watermarkText.slice(0, 4)
   let watermarkText2 = watermarkText.slice(4, 8)
   // add text
-  const center = new cv.Point(45, 70)
+  const center = new cv.Point(45, 75)
   addTextByMat(comImg, watermarkText2, center, fontSize)
   const outer = new cv.Point(45, 45)
   addTextByMat(comImg, watermarkText1, outer, fontSize)
