@@ -39,7 +39,7 @@ run()
 ```
 
 # Result
-## enCode.png
-![7_enCode.png](https://raw.githubusercontent.com/FluttyProger/node-digital-watermarking/master/test/7_enCode.jpg)
-## deCode.png
-![7_deCode.png](https://raw.githubusercontent.com/FluttyProger/node-digital-watermarking/master/test/7_deCode.jpg)
+## 7_enCode.png
+![7_enCode.jpg](https://raw.githubusercontent.com/FluttyProger/node-digital-watermarking/master/test/7_enCode.jpg)
+## 7_deCode.jpg
+![7_deCode.jpg](https://raw.githubusercontent.com/FluttyProger/node-digital-watermarking/master/test/7_deCode.jpg)
